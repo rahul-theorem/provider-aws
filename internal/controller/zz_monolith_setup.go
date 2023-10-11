@@ -330,6 +330,8 @@ import (
 	routetable "github.com/upbound/provider-aws/internal/controller/ec2/routetable"
 	routetableassociation "github.com/upbound/provider-aws/internal/controller/ec2/routetableassociation"
 	securitygroup "github.com/upbound/provider-aws/internal/controller/ec2/securitygroup"
+	securitygroupegressrule "github.com/upbound/provider-aws/internal/controller/ec2/securitygroupegressrule"
+	securitygroupingressrule "github.com/upbound/provider-aws/internal/controller/ec2/securitygroupingressrule"
 	securitygrouprule "github.com/upbound/provider-aws/internal/controller/ec2/securitygrouprule"
 	serialconsoleaccess "github.com/upbound/provider-aws/internal/controller/ec2/serialconsoleaccess"
 	snapshotcreatevolumepermission "github.com/upbound/provider-aws/internal/controller/ec2/snapshotcreatevolumepermission"
@@ -535,6 +537,7 @@ import (
 	clusterkafka "github.com/upbound/provider-aws/internal/controller/kafka/cluster"
 	configuration "github.com/upbound/provider-aws/internal/controller/kafka/configuration"
 	scramsecretassociation "github.com/upbound/provider-aws/internal/controller/kafka/scramsecretassociation"
+	vpcconnection "github.com/upbound/provider-aws/internal/controller/kafka/vpcconnection"
 	datasourcekendra "github.com/upbound/provider-aws/internal/controller/kendra/datasource"
 	experience "github.com/upbound/provider-aws/internal/controller/kendra/experience"
 	index "github.com/upbound/provider-aws/internal/controller/kendra/index"
@@ -1248,6 +1251,8 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		routetable.Setup,
 		routetableassociation.Setup,
 		securitygroup.Setup,
+		securitygroupegressrule.Setup,
+		securitygroupingressrule.Setup,
 		securitygrouprule.Setup,
 		serialconsoleaccess.Setup,
 		snapshotcreatevolumepermission.Setup,
@@ -1453,6 +1458,7 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		clusterkafka.Setup,
 		configuration.Setup,
 		scramsecretassociation.Setup,
+		vpcconnection.Setup,
 		datasourcekendra.Setup,
 		experience.Setup,
 		index.Setup,
