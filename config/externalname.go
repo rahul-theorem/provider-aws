@@ -1129,6 +1129,9 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	// that there is a single aws_msk_scram_secret_association per msk
 	// cluster, so the best identifier is the cluster ARN.
 	"aws_msk_scram_secret_association": config.IdentifierFromProvider,
+	// MSK VPC connections can be imported using the VPC connection ARN that's
+	// suffixed with a random string
+	"aws_msk_vpc_connection": config.IdentifierFromProvider,
 
 	// ram
 	//
