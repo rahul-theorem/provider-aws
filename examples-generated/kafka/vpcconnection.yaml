@@ -1,0 +1,19 @@
+apiVersion: kafka.aws.upbound.io/v1beta1
+kind: VPCConnection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: kafka/v1beta1/vpcconnection
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+spec:
+  forProvider:
+    authentication: SASL_IAM
+    clientSubnets: ${aws_subnet.test[*].id}
+    region: us-west-1
+    securityGroups:
+    - ${aws_security_group.test.id}
+    targetClusterArn: aws_msk_cluster.arn
+    vpcIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: test
